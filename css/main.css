@@ -4,7 +4,9 @@
    Author's custom styles
    ========================================================================== */
 
-#map { height: 180px; }
+html, body, .map_ans { height: 100px; }
+
+#map { height: calc(100% - 100px); }
 
 
 
