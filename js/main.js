@@ -83,6 +83,7 @@ ORDER BY ?beer
                 for (var i = markers.length; i >= 1; i--) {
                     map.removeLayer(markers[i-1]);
                 }
+                markers = [];
                 var filter = {};
                 for (var i = 0; i < results.length; i++) {
                     var result = results[i];
