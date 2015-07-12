@@ -8,6 +8,8 @@ html, body, .map_ans { height: 100%; }
 
 #map { height:calc(100% - 40px); }
 
+.btn-wide { width: 100%; }
+
 
 
 
