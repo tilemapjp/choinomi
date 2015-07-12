@@ -1,6 +1,6 @@
 function getData(data) {
     var val = data.value;
-    if (val.match(/^([0-9]\.+)E([0-9]+)$/) {
+    if (val.match(/^([0-9]\.+)E([0-9]+)$/)) {
         var root = RegExp.$1 * 1;
         var pow  = RegExp.$2 * 1;
         val = root * Math.pow(10,pow);
