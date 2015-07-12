@@ -62,14 +62,15 @@ ORDER BY ?beer
             here.setLatLng(namba_l);
         }
 
-        sparql = sparql.replace(/#south/, namba_l[0] - 0.003)
-            .replace(/#north/, namba_l[0] + 0.003)
-            .replace(/#west/, namba_l[1] - 0.003)
-            .replace(/#east/, namba_l[1] + 0.003);
+        sparql_l = sparql;
+        sparql_l = sparql_l.replace(/#south/, namba_l[0] - 0.002)
+            .replace(/#north/, namba_l[0] + 0.002)
+            .replace(/#west/, namba_l[1] - 0.002)
+            .replace(/#east/, namba_l[1] + 0.002);
 
         var qr = sendQuery(
             endpoint,
-            sparql
+            sparql_l
         );
     
         qr.fail(
