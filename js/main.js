@@ -21,6 +21,10 @@ where{
 ?s geo:lat ?lat.
 ?s bp:tel ?tel.
 ?s geo:long ?long.
+?s bp:ate_price ?ate.
+?s bp:konzatsu ?konzatsu.
+?s bp:osusume ?osusume.
+?s bp:gnavi_url ?gnavi.
 FILTER ( ?lat  > #south && ?lat  < #north
         && ?long > #west && ?long < #east)
 }
@@ -97,6 +101,7 @@ ORDER BY ?beer
                     filter[tel] = 1;
                     var marker = L.marker([lat,lng], {icon: (i==0 ? topIcon : secIcon) }).bindLabel(beer, { noHide: true }).addTo(map);
                     markers.push(marker);
+                    marker.bindPopup("test");
                 }
             }
         );
