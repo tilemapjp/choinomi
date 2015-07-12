@@ -103,7 +103,6 @@ ORDER BY ?beer
                     filter[tel] = 1;
                     var marker = L.marker([lat,lng], {icon: (i==0 ? topIcon : secIcon) }).bindLabel(beer, { noHide: true }).addTo(map);
                     markers.push(marker);
-                    marker.bindPopup("test");
                 }
             }
         );
