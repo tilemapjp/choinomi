@@ -82,15 +82,17 @@ ORDER BY ?beer
                 for (var i = markers.length; i >= 1; i--) {
                     markers[i-1].addTo(null);
                 }
+                var filter = {};
                 for (var i = 0; i < results.length; i++) {
                     var result = results[i];
                     var lat = getData(result.lat);
                     var lng = getData(result.long);
                     var beer = getData(result.beer);
                     var s = getData(result.s);
+                    if (filter[s]) break;
+                    filter[s] = 1;
                     var marker = L.marker([lat,lng], {icon: (i==0 ? topIcon : secIcon) }).addTo(map);
                     markers.push(marker);
-                    break;
                 }
             }
         );
