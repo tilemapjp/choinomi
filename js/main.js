@@ -88,8 +88,9 @@ ORDER BY ?beer
                     var lng = getData(result.long);
                     var beer = getData(result.beer);
                     var s = getData(result.s);
-                    var marker = L.marker([lat,lng], {icon: (i==7 ? topIcon : secIcon) }).addTo(map);
+                    var marker = L.marker([lat,lng], {icon: (i==0 ? topIcon : secIcon) }).addTo(map);
                     markers.push(marker);
+                    break;
                 }
             }
         );
