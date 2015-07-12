@@ -6,6 +6,6 @@
     }).addTo(map);
 
     $("#here").on("click",function(){
-        map.panTo([35.0, 135.0]);
+        map.setView([35.0, 135.0], 16, {animate: true});
     });
 })();
