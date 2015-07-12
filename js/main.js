@@ -7,7 +7,7 @@ select *
 from <http://data.lodosaka.jp/choi-nomi201507012.ttl>
 where{
 ?s bp:name ?name.
-?s bp:beer_price ?beer
+?s bp:beer_price ?beer.
 ?s geo:lat ?lat.
 ?s geo:long ?long.
 FILTER ( ?lat  > #south && ?lat  < #north
