@@ -6,13 +6,14 @@ PREFIX geo:  <http://www.w3.org/2003/01/geo/wgs84_pos#>
 select * 
 from <http://data.lodosaka.jp/choi-nomi201507012.ttl>
 where{
-?s bp:name ?o.
-?s bp:tel ?t.
+?s bp:name ?name.
+?s bp:beer_price ?beer
 ?s geo:lat ?lat.
 ?s geo:long ?long.
-FILTER ( ?lat  > 34.667 && ?lat  < 34.668
-        && ?long > 135.40 && ?long < 135.55)
+FILTER ( ?lat  > #south && ?lat  < #north
+        && ?long > #west && ?long < #east)
 }
+ORDER BY ?beer
     */}).toString().match(/\/\*([^]*)\*\//)[1];
     var namba = [34.6645204,135.5001207];
     var hereIcon = L.icon({
@@ -51,7 +52,7 @@ FILTER ( ?lat  > 34.667 && ?lat  < 34.668
         );
         qr.done(
             function (d) {
-                result_table(d.results.bindings);
+                console.log(d.results.bindings);
             }
         );
     });
