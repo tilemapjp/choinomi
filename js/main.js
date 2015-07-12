@@ -23,7 +23,10 @@ FILTER ( ?lat  > 34.667 && ?lat  < 34.668
     }).addTo(map);
 
     $("#here").on("click",function(){
-        map.setView(namba, 16, {animate: true});
+        var namba_l = [];
+        namba_l[0] = namba[0] + Math.random() * 0.0006 - 0.0003;
+        namba_l[1] = namba[1] + Math.random() * 0.0006 - 0.0003;
+        map.setView(namba_l, 16, {animate: true});
 
         var qr = sendQuery(
             endpoint,
