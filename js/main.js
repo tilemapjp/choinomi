@@ -1,3 +1,13 @@
+function getData(data) {
+    var val = data.value;
+    if (val.match(/^([0-9]\.+)E([0-9]+)$/) {
+        var root = RegExp.$1 * 1;
+        var pow  = RegExp.$2 * 1;
+        val = root * Math.pow(10,pow);
+    }
+    return val;
+}
+
 (function(){
     var endpoint = "http://lod.hozo.jp/repositories/lodosaka";
     var sparql = (function() {/*
@@ -32,6 +42,7 @@ ORDER BY ?beer
         iconAnchor: [22, 33]
     });
     var here;
+    var markers = [];
 
     var map = L.map('map').setView([35.0, 135.0], 5);
     L.tileLayer('http://j.tile.openstreetmap.jp/{z}/{x}/{y}.png', {
@@ -68,9 +79,17 @@ ORDER BY ?beer
         qr.done(
             function (d) {
                 var results = d.results.bindings;
-                for (var i =0; i < results.length; i++) {
+                for (var i = markers.length; i >= 1; i--) {
+                    markers[i-1].addTo(null);
+                }
+                for (var i = 0; i < results.length; i++) {
                     var result = results[i];
-                    console.log(result);
+                    var lat = getData(result.lat);
+                    var lng = getData(result.long);
+                    var beer = getData(result.beer);
+                    var s = getData(result.s);
+                    var marker = L.marker([lat,lng], {icon: i==0 ? topIcon : secIcon }).addTo(map);
+                    markers.push(marker);
                 }
             }
         );
