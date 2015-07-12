@@ -4,4 +4,8 @@
         attribution: 'Map data &copy; OpenStreetMap contributors, Tiles Courtesy of OpenStreetMap Japan',
         maxZoom: 19,
     }).addTo(map);
+
+    $("#here").on("click",function(){
+        map.panTo([35.0, 135.0]);
+    });
 })();
