@@ -34,7 +34,7 @@ FILTER ( ?lat  > 34.667 && ?lat  < 34.668
         namba_l[1] = namba[1] + Math.random() * 0.006 - 0.003;
         map.setView(namba_l, 16, {animate: true});
         if (!here) {
-            here = L.marker([namba_l, {icon: hereIcon}).addTo(map);
+            here = L.marker(namba_l, {icon: hereIcon}).addTo(map);
         } else {
             here.setLatLng(namba_l);
         }
