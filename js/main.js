@@ -95,7 +95,7 @@ ORDER BY ?beer
                     var s = getData(result.s);
                     if (filter[tel]) continue;
                     filter[tel] = 1;
-                    var marker = L.marker([lat,lng], {icon: (i==0 ? topIcon : secIcon) }).bindLabel(beer).addTo(map);
+                    var marker = L.marker([lat,lng], {icon: (i==0 ? topIcon : secIcon) }).bindLabel(beer, { noHide: true }).addTo(map);
                     markers.push(marker);
                 }
             }
