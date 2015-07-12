@@ -21,15 +21,17 @@ where{
 ?s geo:lat ?lat.
 ?s bp:tel ?tel.
 ?s geo:long ?long.
-?s bp:ate_price ?ate.
-?s bp:konzatsu ?konzatsu.
-?s bp:osusume ?osusume.
-?s bp:gnavi_url ?gnavi.
 FILTER ( ?lat  > #south && ?lat  < #north
         && ?long > #west && ?long < #east)
 }
 ORDER BY ?beer
     */}).toString().match(/\/\*([^]*)\*\//)[1];
+/*
+?s bp:ate_price ?ate.
+?s bp:konzatsu ?konzatsu.
+?s bp:osusume ?osusume.
+?s bp:gnavi_url ?gnavi.
+*/
     var namba = [34.6645204,135.5001207];
     var hereIcon = L.icon({
         iconUrl: 'img/circle.png',
