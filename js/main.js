@@ -21,6 +21,16 @@ ORDER BY ?beer
         iconSize: [21, 21],
         iconAnchor: [11, 11]
     });
+    var topIcon = L.icon({
+        iconUrl: 'img/or_baloon.png',
+        iconSize: [32, 33],
+        iconAnchor: [22, 33]    
+    });
+    var secIcon = L.icon({
+        iconUrl: 'img/gr_baloon.png',
+        iconSize: [32, 33],
+        iconAnchor: [22, 33]
+    });
     var here;
 
     var map = L.map('map').setView([35.0, 135.0], 5);
@@ -57,7 +67,11 @@ ORDER BY ?beer
         );
         qr.done(
             function (d) {
-                console.log(d.results.bindings);
+                var results = d.results.bindings;
+                for (var i =0; i < results.length; i++) {
+                    var result = results[i];
+                    console.log(result);
+                }
             }
         );
     });
