@@ -40,6 +40,11 @@ ORDER BY ?beer
             here.setLatLng(namba_l);
         }
 
+        sparql = sparql.replace(/#south/, namba_l[0] - 0.006)
+            .replace(/#north/, namba_l[0] + 0.006)
+            .replace(/#west/, namba_l[1] - 0.006)
+            .replace(/#east/, namba_l[1] + 0.006);
+
         var qr = sendQuery(
             endpoint,
             sparql
