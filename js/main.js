@@ -81,7 +81,7 @@ ORDER BY ?beer
             function (d) {
                 var results = d.results.bindings;
                 for (var i = markers.length; i >= 1; i--) {
-                    markers[i-1].addTo(null);
+                    map.removeLayer(markers[i-1]);
                 }
                 var filter = {};
                 for (var i = 0; i < results.length; i++) {
@@ -91,7 +91,7 @@ ORDER BY ?beer
                     var beer = getData(result.beer);
                     var tel = getData(result.tel);
                     var s = getData(result.s);
-                    if (filter[tel]) break;
+                    if (filter[tel]) continue;
                     filter[tel] = 1;
                     var marker = L.marker([lat,lng], {icon: (i==0 ? topIcon : secIcon) }).addTo(map);
                     markers.push(marker);
