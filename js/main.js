@@ -35,14 +35,12 @@ ORDER BY ?beer
     var topIcon = L.icon({
         iconUrl: 'img/or_baloon.png',
         iconSize: [32, 33],
-        iconAnchor: [22, 33],
-        labelAnchor: [22, 33]
+        iconAnchor: [22, 33]
     });
     var secIcon = L.icon({
         iconUrl: 'img/gr_baloon.png',
         iconSize: [32, 33],
-        iconAnchor: [22, 33],
-        labelAnchor: [22, 33]
+        iconAnchor: [22, 33]
     });
     var here;
     var markers = [];
