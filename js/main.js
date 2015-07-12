@@ -19,6 +19,7 @@ where{
 ?s bp:name ?name.
 ?s bp:beer_price ?beer.
 ?s geo:lat ?lat.
+?s bp:tel ?tel.
 ?s geo:long ?long.
 FILTER ( ?lat  > #south && ?lat  < #north
         && ?long > #west && ?long < #east)
@@ -88,9 +89,10 @@ ORDER BY ?beer
                     var lat = getData(result.lat);
                     var lng = getData(result.long);
                     var beer = getData(result.beer);
+                    var tel = getData(result.tel);
                     var s = getData(result.s);
-                    if (filter[s]) break;
-                    filter[s] = 1;
+                    if (filter[tel]) break;
+                    filter[tel] = 1;
                     var marker = L.marker([lat,lng], {icon: (i==0 ? topIcon : secIcon) }).addTo(map);
                     markers.push(marker);
                 }
